@@ -10,10 +10,21 @@ There are three primary entities in this script: User, Address, and City. Each o
 ## Prerequisites
 Ensure you have the following installed:
 
-- Rust
-- SQLx
-- PostgreSQL
-- dotenv
+- sqlx
+- tokio
+- dotenvy
+- serde
+- serde_json
+
+You'll probably already have these installed for your crate but in case you don't you can install these like this:
+
+```sh
+cargo add sqlx --features "postgres,runtime-tokio-native-tls"
+cargo add tokio --features "macros,rt-multi-thread"
+cargo add dotenvy
+cargo add serde --features "derive"
+cargo add serde_json
+```
 
 ## Usage
 Ensure you have a .env file in your project root with a DATABASE_URL variable. This should be a connection string for your PostgreSQL database.
