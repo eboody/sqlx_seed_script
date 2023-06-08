@@ -37,7 +37,7 @@ Navigate to the /src/bin directory and run the script using cargo:
 Copy code
 cargo run --bin seed
 ```
-This will run the main function, which creates a connection pool with the database and uses it to create cities, addresses, and users.
+This will run the main function, which creates a connection pool with the database and uses it to create cities, addresses, and users. Of course these are just dummy entities. Replace these with your own.
 
 ## Troubleshooting
 If you encounter errors, ensure that:
