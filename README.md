@@ -12,16 +12,13 @@ Ensure you have the following installed:
 - sqlx
 - tokio
 - dotenvy
-- serde
-- serde_json
 
 You'll probably already have these installed for your crate but in case you don't you can install these like this:
 
 ```sh
-cargo add dotenvy serde_json
+cargo add dotenvy
 cargo add sqlx --features "postgres,runtime-tokio-native-tls"
 cargo add tokio --features "macros,rt-multi-thread"
-cargo add serde --features "derive"
 ```
 
 ## Usage

@@ -1,9 +1,7 @@
 use dotenvy::dotenv;
 use sqlx::postgres::{PgPool, PgQueryResult};
 
-use serde::{Deserialize, Serialize};
-
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug)]
 pub struct User {
     id: i32,
     first_name: String,
@@ -12,7 +10,7 @@ pub struct User {
     address_id: i32,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug)]
 pub struct Address {
     id: i32,
     street: String,
@@ -20,11 +18,13 @@ pub struct Address {
     city_id: i32,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug)]
 pub struct City {
     id: i32,
     name: String,
 }
+
+const NUMBER_OF_ROWS: u8 = 10;
 
 #[tokio::main]
 async fn main() -> Result<(), sqlx::Error> {
@@ -35,7 +35,7 @@ async fn main() -> Result<(), sqlx::Error> {
 
     let pool = PgPool::connect(&connection_string).await.unwrap();
 
-    let ids: Vec<i32> = (1..=5).collect();
+    let ids: Vec<i32> = (1..=NUMBER_OF_ROWS).collect();
 
     for id in ids {
         create_cities(&pool, id).await?;
@@ -47,13 +47,17 @@ async fn main() -> Result<(), sqlx::Error> {
 }
 
 async fn create_cities(pool: &PgPool, id: i32) -> Result<PgQueryResult, sqlx::Error> {
-    let name = format!("City{id}");
+    let city = City {
+        id,
+        name: format!("City{id}"),
+    };
+
     sqlx::query!(
         r#"
             INSERT INTO cities (id, name) VALUES ($1, $2);
         "#,
-        id,
-        name,
+        city.id,
+        city.name,
     )
     .execute(pool)
     .await
@@ -71,7 +75,7 @@ async fn create_addresses(pool: &PgPool, id: i32) -> Result<PgQueryResult, sqlx:
         r#"
             INSERT INTO addresses (id, street, house_number, city_id) VALUES ($1, $2, $3, $4);
         "#,
-        id,
+        address.id,
         address.street,
         address.house_number,
         address.city_id,
@@ -93,7 +97,7 @@ async fn create_users(pool: &PgPool, id: i32) -> Result<PgQueryResult, sqlx::Err
         r#"
             INSERT INTO users (id, first_name, last_name, email, address_id) VALUES ($1, $2, $3, $4, $5);
         "#,
-        id,
+        user.id,
         user.first_name,
         user.last_name,
         user.email,
