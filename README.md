@@ -33,8 +33,7 @@ Add this repository as a binary in your Cargo.toml file under [dependencies] sec
 
 Navigate to the /src/bin directory and run the script using cargo:
 
-```rust
-Copy code
+```sh
 cargo run --bin seed
 ```
 This will run the main function, which creates a connection pool with the database and uses it to create cities, addresses, and users. Again these are mock entities. Replace these with your own.
