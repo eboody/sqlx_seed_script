@@ -27,7 +27,7 @@ cargo add serde_json
 ```
 
 ## Usage
-Ensure you have a `.env` file in your project root with a DATABASE_URL variable. This should be a connection string for your PostgreSQL database.
+Ensure you have a `.env` file in your project root with a `DATABASE_URL` variable. This should be a connection string for your PostgreSQL database.
 
 Add this repository as a binary in your `Cargo.toml` file under [dependencies] section.
 
