@@ -21,7 +21,7 @@ pub struct City {
     name: String,
 }
 
-const NUMBER_OF_ROWS: u8 = 10;
+const NUMBER_OF_ROWS: i32 = 10;
 
 #[tokio::main]
 async fn main() -> Result<(), sqlx::Error> {
