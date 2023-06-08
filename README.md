@@ -2,7 +2,7 @@
 This is a simple Rust script to seed a PostgreSQL database using SQLx.
 
 ## Overview
-This script creates a series of cities, addresses, and users in the database. Each entity has an associated 'id', and the script creates entities with ids from 1 to 5.
+This script creates a series of cities, addresses, and users in the database.  Each entity has an associated 'id', and the script creates entities with ids from 1 to 5. These are intended to serve as mock data so, of course, replace these with entities from your crate.
 
 ## Structure
 There are three primary entities in this script: User, Address, and City. Each of these entities has an associated struct in this script, as well as a function to create instances of it in the database.
@@ -37,11 +37,11 @@ Navigate to the /src/bin directory and run the script using cargo:
 Copy code
 cargo run --bin seed
 ```
-This will run the main function, which creates a connection pool with the database and uses it to create cities, addresses, and users. Of course these are just dummy entities. Replace these with your own.
+This will run the main function, which creates a connection pool with the database and uses it to create cities, addresses, and users. Again these are mock entities. Replace these with your own.
 
 ## Troubleshooting
 If you encounter errors, ensure that:
 
-Your `DATABASE_URL` connection string is correct.
-Your PostgreSQL server is running and accepting connections.
-The 'cities', 'addresses', and 'users' tables exist in your database. (of course, change this as necessary)
+- Your `DATABASE_URL` connection string is correct.
+- Your PostgreSQL server is running and accepting connections.
+- The relevant tables exist in your database. 'cities', 'addresses', and 'users' in this example.
