@@ -4,7 +4,7 @@ This is a simple Rust script to seed a PostgreSQL database using SQLx.
 ## Overview
 This script creates a series of cities, addresses, and users in the database.  Each entity has an associated 'id', and the script creates entities with ids from 1 to 5.
 
-**Note**: The included User, Address, and City structs in this script are mock structures that correspond to a hypothetical migration file that created 'cities', 'addresses', and 'users' tables. Adjust these structures according to your own migration files and database design.
+**Note**: The included `User`, `Address`, and `City` structs in this script are mock structures that correspond to a hypothetical migration file that created 'cities', 'addresses', and 'users' tables. Adjust these structures according to your own migration files and database design.
 
 ## Prerequisites
 Ensure you have the following installed:
