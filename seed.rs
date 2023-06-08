@@ -1,7 +1,6 @@
 use dotenvy::dotenv;
 use sqlx::postgres::{PgPool, PgQueryResult};
 
-#[derive(Debug)]
 pub struct User {
     id: i32,
     first_name: String,
@@ -10,7 +9,6 @@ pub struct User {
     address_id: i32,
 }
 
-#[derive(Debug)]
 pub struct Address {
     id: i32,
     street: String,
@@ -18,7 +16,6 @@ pub struct Address {
     city_id: i32,
 }
 
-#[derive(Debug)]
 pub struct City {
     id: i32,
     name: String,
