@@ -24,7 +24,9 @@ cargo add tokio --features "macros,rt-multi-thread"
 ## Usage
 Ensure you have a `.env` file in your project root with a `DATABASE_URL` variable. This should be a connection string for your PostgreSQL database.
 
-Navigate to the `/src/bin` directory and run the script using cargo:
+Create a `/bin` directory in `/src` then place this in your `/src/bin` directory.
+
+Then run the script using cargo:
 
 ```sh
 cargo run --bin seed
